@@ -70,6 +70,7 @@ void run_wamr_app(const char *wasm_path)
     }
     sleep(1);
 #ifndef FORKING_SOLUTION
+    wasm_runtime_terminate(module_inst);
     pthread_cancel(tid);
 #else
     pthread_join(tid, NULL);
